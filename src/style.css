@@ -11,6 +11,16 @@
     --font-primary: "Montserrat", "sans-serif";
 }
 
+@layer components {
+    .nav-link {
+        @apply p-8 hover:underline underline-offset-4 cursor-pointer decoration-yellow-mellow decoration-4;
+    }
+    
+    .svg-link{
+        @apply group-hover:fill-yellow-mellow-light transition-all duration-500;
+    }
+  }
+
 
 
 

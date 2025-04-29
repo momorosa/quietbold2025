@@ -1,7 +1,13 @@
+import { useState } from 'react'
+import DropdownMenuMobile from './DropdownMenuMobile.jsx'
+import { IconMenu, IconClose } from './icons/IconMenu.jsx'
+
 export default function Navbar()
 {
-    return (
-        <div className="flex justify-between items-center p-6">
+    const [ isOpen, setIsOpen ] = useState(false)
+
+    return (<>
+        <div className="flex justify-between items-center p-6 z-50 relative">
             <a href="/" className="group relative inline-block hover:cursor-pointer">
                 <svg 
                     className="w-full h-full"
@@ -14,13 +20,20 @@ export default function Navbar()
                         cx="11.1547" cy="28.6198" r="3.38028" fill="#FFFFFF"/>
                 </svg>
             </a>
-            <a href="/" className="group relative inline-block hover:cursor-pointer">
-                <svg 
-                    className="w-full h-full"
-                    width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4 9.33329V6.66663H28V9.33329H4ZM4 25.3333V22.6666H28V25.3333H4ZM4 17.3333V14.6666H21.3333V17.3333H4Z" fill="white"/>
-                </svg>
-            </a>
+            <button onClick={() => setIsOpen(!isOpen)} className="group relative w-8 h-8">
+                <div
+                    className={`absolute inset-0 transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-0' : 'opacity-100'}`}
+                >
+                    <IconMenu />
+                </div>
+                <div
+                    className={`absolute inset-0 transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-100' : 'opacity-0'}`}
+                >
+                    <IconClose />
+                </div>
+            </button>
         </div>
+        {isOpen && <DropdownMenuMobile isOpen={isOpen} />}
+    </>
     )
 }
