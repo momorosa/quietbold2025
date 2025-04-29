@@ -34,7 +34,7 @@ export default function DropdownMenuMobile({ isOpen })
                         </svg>
                     </a>
                     <a href="mailto:momorosa.design@gmail.com" target="_blank" rel="noopener noreferrer"
-                    className="group group-over:cursor-pointer">
+                    className="group group-hover:cursor-pointer">
                         <svg width="32" height="32" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path 
                             className="svg-link"

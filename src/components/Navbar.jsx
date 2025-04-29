@@ -24,12 +24,12 @@ export default function Navbar()
                 <div
                     className={`absolute inset-0 transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-0' : 'opacity-100'}`}
                 >
-                    <IconMenu />
+                    <IconMenu className="hover:cursor-pointer" />
                 </div>
                 <div
-                    className={`absolute inset-0 transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-100' : 'opacity-0'}`}
+                    className={`absolute inset-0 transition-opacity duration-500 ease-in-out ${isOpen ? 'opacity-100' : 'opacity-0'}`}
                 >
-                    <IconClose />
+                    <IconClose className="hover:cursor-pointer" />
                 </div>
             </button>
         </div>
