@@ -2,35 +2,35 @@ import React from 'react'
 
 export default function Button({
   children,
-  href = null, // if present, renders <a>
+  href = null,       // if present, renders <a>
   onClick,
-  type = "button",
-  className = "",
+  type = 'button',   // button type when there’s no href
+  className = '',
   leftIcon = null,
   rightIcon = null,
-  iconSize = "md-18",
+  iconSize = 'md-18',
   ...rest
 }) {
-  const Tag = href ? 'a' : 'button'
-  const baseProps = {
-    className: `${className}`,
-    onClick,
-    type: href ? undefined : type,
-    href,
-    ...rest
-  }
+    const Tag = href ? 'a' : 'button'
 
-  const renderMaterialIcon = (iconName) => (
-    <span className={`material-icons ${iconSize}`}>{iconName}</span>
-  )
+    const tagProps = {
+      className: `inline-flex items-center justify-center gap-2 ${className}`,
+      onClick,
+      ...(href
+        ? { href, target: rest.target, rel: rest.rel }
+        : { type }),
+      ...rest,
+    }
 
-  return (
-    <Tag {...baseProps}>
-      <span className="flex items-center justify-center gap-2">
+    const renderMaterialIcon = (iconName) => (
+      <span className={`material-icons ${iconSize}`}>{iconName}</ span>
+    )
+
+    return (
+      <Tag {...tagProps}>
         {leftIcon && renderMaterialIcon(leftIcon)}
         {children}
         {rightIcon && renderMaterialIcon(rightIcon)}
-      </span>
-    </Tag>
-  )
+      </Tag>
+    )
 }

@@ -20,7 +20,8 @@ export default function Navbar()
                         cx="11.1547" cy="28.6198" r="3.38028" fill="#FFFFFF"/>
                 </svg>
             </a>
-            <button onClick={() => setIsOpen(!isOpen)} className="group relative w-8 h-8">
+            <div className="h-8 text-white" >Rosa Choi | Creative Technologist</div>
+            {/* <button onClick={() => setIsOpen(!isOpen)} className="group relative w-8 h-8">
                 <div
                     className={`absolute inset-0 transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-0' : 'opacity-100'}`}
                 >
@@ -31,7 +32,7 @@ export default function Navbar()
                 >
                     <IconClose className="hover:cursor-pointer" />
                 </div>
-            </button>
+            </button> */}
         </div>
         {isOpen && <DropdownMenuMobile isOpen={isOpen} />}
     </>
