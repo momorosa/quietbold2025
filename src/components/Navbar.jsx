@@ -7,7 +7,7 @@ export default function Navbar()
     const [ isOpen, setIsOpen ] = useState(false)
 
     return (<>
-        <div className="flex justify-between items-center p-6 z-50 relative">
+        <div className="flex justify-between items-center p-6 z-50 relative backdrop-blur-sm">
             <a href="/" className="group relative inline-block hover:cursor-pointer">
                 <svg 
                     className="w-full h-full"

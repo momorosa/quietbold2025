@@ -8,17 +8,13 @@ import Button from './Button.jsx'
 export default function About() {
   return (
     <div className="w-full h-screen flex flex-col lg:flex-row text-white overflow-auto">
+
       {/* ──────────────────────────────── */}
       {/* Canvas section */}
       {/* ──────────────────────────────── */}
-      <div className="
-          w-full        /* full width on mobile */
-          h-1/2         /* half the viewport height on mobile */
-          lg:w-3/5      /* 3/5 width at lg+ */
-          lg:h-full     /* full height at lg+ */
-      ">
+      <div className="w-full h-1/2 lg:w-3/5 lg:h-full">
         <Canvas
-          className="w-full h-full"
+          className="w-full h-full touch-none"
           gl={{ antialias: true }}
           camera={{ fov: 35, position: [0, 0, 18] }}
         >
@@ -36,18 +32,9 @@ export default function About() {
       {/* ──────────────────────────────── */}
       {/* Content panel */}
       {/* ──────────────────────────────── */}
-      <div className="
-        w-full                    /* full width on mobile */
-        h-auto                    /* grow to content height on mobile */
-        lg:w-2/5                  /* 2/5 width at lg+ */
-        lg:h-full                 /* full height at lg+ */
-        lg:absolute lg:top-0 lg:right-0 lg:pr-12 z-10 /* optional overlay at lg+ */
-        bg-warm-gray
-        backdrop-blur
-        pt-32
-        px-8
-        mb-50
-      ">
+      <div className="w-full h-auto lg:w-2/5 lg:h-full               
+        lg:absolute lg:top-0 lg:right-0 lg:pr-12 
+        bg-warm-gray backdrop-blur lg:pt-32 px-8 z-10 mb-50">
         <h1 className="text-3xl font-bold py-4 text-yellow-mellow">
           {aboutContent.headline}
         </h1>

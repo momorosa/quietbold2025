@@ -3,11 +3,11 @@ import { useFrame, useThree } from '@react-three/fiber'
 import * as THREE from 'three'
 import vertexShader   from '../shaders/particles/vertex.glsl?raw'
 import fragmentShader from '../shaders/particles/fragment.glsl?raw'
-import glowImgSrc     from '../../public/assets/glow.png'
-import myPortrait     from '../../public/assets/my-portrait.png'
+import glowImgSrc  from '../assets/glow.png'
+import portraitSrc from '../assets/my-portrait.png'
 
 export default function Particles() {
-  // 1) Build one canvas & texture
+  // 1) Offscreen canvas + texture
   const { canvas, context, texture } = useMemo(() => {
     const size = 128
     const c = document.createElement('canvas')
@@ -17,20 +17,27 @@ export default function Particles() {
     return { canvas: c, context: ctx, texture: new THREE.CanvasTexture(c) }
   }, [])
 
-  // 2) Prepare your pointer/raycast refs
+  // 2) One glow image
+  const glowImage = useMemo(() => {
+    const img = new Image()
+    img.src = glowImgSrc
+    return img
+  }, [])
+
+  // 3) Raycast & cursor refs
   const planeRef     = useRef()
   const raycasterRef = useRef(new THREE.Raycaster())
-  const screenCursor = useRef(new THREE.Vector2(Infinity, Infinity))
+  const screenCursor = useRef(new THREE.Vector2(0, 0))
   const canvasCursor = useRef(new THREE.Vector2())
   const canvasPrev   = useRef(new THREE.Vector2())
 
-  // 3) Load portrait texture
+  // 4) Portrait texture
   const pictureTexture = useMemo(
-    () => new THREE.TextureLoader().load(myPortrait),
+    () => new THREE.TextureLoader().load(portraitSrc),
     []
   )
 
-  // 4) Build your geometry
+  // 5) Geometry
   const geometry = useMemo(() => {
     const geo = new THREE.PlaneGeometry(10, 10, 128, 128)
     geo.setIndex(null)
@@ -47,7 +54,7 @@ export default function Particles() {
     return geo
   }, [])
 
-  // 5) Build your shader material, feeding in *that* texture
+  // 6) Shader material
   const material = useMemo(
     () => new THREE.ShaderMaterial({
       vertexShader,
@@ -62,7 +69,7 @@ export default function Particles() {
     [pictureTexture, texture]
   )
 
-  // 6) Keep resolution uniform up to date
+  // 7) Keep uResolution in sync
   const { size, gl } = useThree()
   useEffect(() => {
     material.uniforms.uResolution.value.set(
@@ -71,29 +78,20 @@ export default function Particles() {
     )
   }, [size, gl, material])
 
-  // 7) Correct pointer event
-  useEffect(() => {
-    const onMouseMove = (e) => {
-      screenCursor.current.set(
-        (e.clientX / size.width)  * 2 - 1,
-       -(e.clientY / size.height) * 2 + 1
-      )
-    }
-    window.addEventListener('pointermove', onMouseMove)
-    return () => window.removeEventListener('pointermove', onMouseMove)
-  }, [size])
+  // 8) Draw + update every frame
+  useFrame(({ mouse, camera }) => {
+    const raycaster = raycasterRef.current
+    screenCursor.current.copy(mouse)
 
-  // 8) Draw + update texture each frame
-  useFrame(({ camera }) => {
-    // raycast to find UV
-    raycasterRef.current.setFromCamera(screenCursor.current, camera)
-    const hits = raycasterRef.current.intersectObject(planeRef.current)
+    // raycast → uv
+    raycaster.setFromCamera(mouse, camera)
+    const hits = raycaster.intersectObject(planeRef.current)
     if (hits.length) {
       const uv = hits[0].uv
       canvasCursor.current.set(uv.x * 128, (1 - uv.y) * 128)
     }
 
-    // fade previous
+    // fade
     context.globalCompositeOperation = 'source-over'
     context.globalAlpha = 0.02
     context.fillRect(0, 0, 128, 128)
@@ -106,8 +104,6 @@ export default function Particles() {
 
     context.globalCompositeOperation = 'lighten'
     context.globalAlpha = alpha
-    const glowImage = new Image()
-    glowImage.src = glowImgSrc
     context.drawImage(
       glowImage,
       canvasCursor.current.x - glowSize * 0.5,
@@ -119,7 +115,7 @@ export default function Particles() {
     texture.needsUpdate = true
   })
 
-  // 9) Render hidden plane + points
+  // 9) Render
   return (
     <>
       <mesh ref={planeRef} visible={false}>
