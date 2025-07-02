@@ -1,4 +1,5 @@
 // About.jsx
+import { useState, useEffect } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 import { aboutContent } from '../content/aboutText.js'
@@ -6,15 +7,24 @@ import Particles from '../r3f/Particles.jsx'
 import Button from './Button.jsx'
 
 export default function About() {
+
+  // delay mounting the Canvas until after CSS has laid out the wrapper
+  const [showCanvas, setShowCanvas] = useState(false)
+  useEffect(() => {
+    setShowCanvas(true)
+  }, [])
+
   return (
     <div className="w-full h-screen flex flex-col lg:flex-row text-white overflow-auto">
 
       {/* ──────────────────────────────── */}
       {/* Canvas section */}
       {/* ──────────────────────────────── */}
-      <div className="w-full h-1/2 lg:w-3/5 lg:h-full">
+        
+      <div className="relative flex-none w-full h-2/5 lg:w-3/5 lg:h-full">
+      {showCanvas && (
         <Canvas
-          className="w-full h-full touch-none"
+          className="absolute inset-0 block touch-none"
           gl={{ antialias: true }}
           camera={{ fov: 35, position: [0, 0, 18] }}
         >
@@ -26,15 +36,14 @@ export default function About() {
             minPolarAngle={Math.PI / 2}
           />
           <Particles />
-        </Canvas>
+        </Canvas>)}
       </div>
 
       {/* ──────────────────────────────── */}
       {/* Content panel */}
       {/* ──────────────────────────────── */}
       <div className="w-full h-auto lg:w-2/5 lg:h-full               
-        lg:absolute lg:top-0 lg:right-0 lg:pr-12 
-        bg-warm-gray backdrop-blur lg:pt-32 px-8 z-10 mb-50">
+        lg:pr-12 bg-warm-gray backdrop-blur lg:pt-32 px-8 z-10 mb-50">
         <h1 className="text-3xl font-bold py-4 text-yellow-mellow">
           {aboutContent.headline}
         </h1>
