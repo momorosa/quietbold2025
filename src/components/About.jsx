@@ -43,7 +43,7 @@ export default function About() {
       {/* Content panel */}
       {/* ──────────────────────────────── */}
       <div className="w-full h-auto lg:w-2/5 lg:h-full               
-        lg:pr-12 bg-warm-gray backdrop-blur lg:pt-32 px-8 z-10 mb-50">
+        lg:pr-12 bg-warm-gray backdrop-blur lg:pt-32 px-8 z-10 mb-50 lg:mb-0">
         <h1 className="text-3xl font-bold py-4 text-yellow-mellow">
           {aboutContent.headline}
         </h1>
@@ -51,7 +51,20 @@ export default function About() {
         <p>{aboutContent.background}</p>
         <p className="py-4">{aboutContent.passion}</p>
 
-        <div className="py-4 mb-12">
+        <Button
+            id="btn"
+            href="mailto:momorosa.design@gmail.com"
+            className="font-medium text-black bg-yellow-mellow px-5 py-3 mt-8"
+            aria-label="send message"
+            rightIcon="send"
+            iconSize="md-18"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+          {aboutContent.buttonText}
+        </Button>
+
+        <div className="py-4 mt-12">
             <a
                 href={aboutContent.github}
                 target="_blank"
@@ -71,18 +84,6 @@ export default function About() {
             </a>
         </div>
 
-        <Button
-            id="btn"
-            href="mailto:momorosa.design@gmail.com"
-            className="font-medium text-black bg-yellow-mellow px-5 py-3"
-            aria-label="send message"
-            rightIcon="send"
-            iconSize="md-18"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-          {aboutContent.buttonText}
-        </Button>
       </div>
     </div>
   )

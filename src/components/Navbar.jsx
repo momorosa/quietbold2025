@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import DropdownMenuMobile from './DropdownMenuMobile.jsx'
+import Shuffle from './Shuffle.jsx'
 import { IconMenu, IconClose } from './icons/IconMenu.jsx'
 
 export default function Navbar()
@@ -20,7 +21,9 @@ export default function Navbar()
                         cx="11.1547" cy="28.6198" r="3.38028" fill="#FFFFFF"/>
                 </svg>
             </a>
-            <div className="h-8 text-white" >Rosa Choi | Creative Technologist</div>
+            <div className="h-8 text-white" >
+                <Shuffle />
+            </div>
             {/* <button onClick={() => setIsOpen(!isOpen)} className="group relative w-8 h-8">
                 <div
                     className={`absolute inset-0 transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-0' : 'opacity-100'}`}
