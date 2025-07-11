@@ -6,7 +6,7 @@ const LETTERS = '!<>-_\\/[]{}—=+*^?#________'
 /**
  * useScramble: returns scrambled text and a done flag once reveal completes
  */
-function useScramble(text, speed = 30) {
+function useScramble(text, speed = 70) {
   const [display, setDisplay] = useState(text)
   const [done, setDone] = useState(false)
 

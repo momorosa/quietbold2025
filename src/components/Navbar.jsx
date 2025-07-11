@@ -8,7 +8,7 @@ export default function Navbar()
     const [ isOpen, setIsOpen ] = useState(false)
 
     return (<>
-        <div className="flex justify-between items-center p-6 z-50 relative backdrop-blur-sm">
+        <div className="flex-column md:flex lg:flex justify-between items-center p-6 z-50 relative backdrop-blur-sm">
             <a href="/" className="group relative inline-block hover:cursor-pointer">
                 <svg 
                     className="w-full h-full"
@@ -21,7 +21,7 @@ export default function Navbar()
                         cx="11.1547" cy="28.6198" r="3.38028" fill="#FFFFFF"/>
                 </svg>
             </a>
-            <div className="h-8 text-white" >
+            <div className="h-8 text-white">
                 <Shuffle />
             </div>
             {/* <button onClick={() => setIsOpen(!isOpen)} className="group relative w-8 h-8">
