@@ -1,5 +1,5 @@
 export const myStack = {
-    title: "Design & Development Stack",
+    title: "My Design & Development Stack",
     description:"From UI design and front-end development to AI experimentation and immersive XR, this is the evolving stack that powers my day-to-day work.",
     designStack: {
         title: "Design",
@@ -13,12 +13,12 @@ export const myStack = {
                 description:"Go-to for real-time collaboration wtih teams, mapping systems, and workflows..",
             },
             {
-                tool: "AI-powered tools",
-                description:"I experiment with tools like Midjourney, Kling, Suno AI, ElevenLabs, Sora, and Meshy AI to ideate and generate contents quickly.",
-            },
-            {
                 tool: "Blender",
                 description:"Currently learning to create and customize 3D models for web use.",
+            },
+            {
+                tool: "AI-powered tools",
+                description:"I experiment with tools like Midjourney, Kling, Suno AI, ElevenLabs, Sora, and Meshy AI to ideate and generate contents quickly.",
             },
         ]
     },

@@ -15,7 +15,7 @@ export default function About() {
   }, [])
 
   return (
-    <div className="w-full h-screen flex flex-col lg:flex-row text-white overflow-auto">
+    <div className="w-full h-screen flex flex-col lg:flex-row text-white pt-24 overflow-auto">
       {/* ──────────────────────────────── */}
       {/* Canvas section */}
       {/* ──────────────────────────────── */}
@@ -44,7 +44,7 @@ export default function About() {
       {/* ──────────────────────────────── */}
       <div
         className="w-full h-auto lg:w-2/5 lg:h-full               
-        lg:pr-12 bg-warm-gray backdrop-blur lg:pt-32 px-8 z-10 mb-50 lg:mb-0"
+        lg:pr-12 bg-warm-gray backdrop-blur lg:pt-32 px-8 mb-20 lg:mb-0"
       >
         <h1 className="text-3xl font-bold py-4 text-yellow-mellow">
             {aboutContent.headline}
