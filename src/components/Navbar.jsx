@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import DropdownMenuMobile from './DropdownMenuMobile.jsx'
 import Shuffle from './Shuffle.jsx'
 import { IconMenu, IconClose } from './icons/IconMenu.jsx'
@@ -9,7 +10,7 @@ export default function Navbar()
 
     return (<>
         <div className="flex-column md:flex lg:flex justify-between items-center p-6 z-50 relative backdrop-blur-sm">
-            <a href="/" className="group relative inline-block hover:cursor-pointer">
+            <Link to="/" className="group relative inline-block hover:cursor-pointer">
                 <svg 
                     className="w-full h-full"
                     width="23" height="32" viewBox="0 0 23 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -20,7 +21,7 @@ export default function Navbar()
                         className="transition-all duration-500 delay-200 group-hover:fill-yellow-mellow "
                         cx="11.1547" cy="28.6198" r="3.38028" fill="#FFFFFF"/>
                 </svg>
-            </a>
+            </Link>
             <div className="h-8 text-white">
                 <Shuffle />
             </div>

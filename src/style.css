@@ -1,4 +1,7 @@
 @import 'tailwindcss';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @theme {
     --color-yellow-mellow: #CF9033;
@@ -21,23 +24,34 @@
     }
 }
 
-html, 
-body,
-#root {
-    height: 100%;
+
+@layer base {
+  :root {
+    --linkColor: #CF9033;
+    --lineStroke: 2px;
+    --lineOpacity: 30%;
+    --filledLine: var(--linkColor);
+    --unfilledLine: color-mix(in lab, var(--linkColor) var(--lineOpacity), transparent);
+  }
 }
 
-
-#btn {
-    box-shadow: inset 0 0 0 0.09px #000000;
-    transition: all 0.4s ease-in-out;
+@layer utilities {
+  .fancy-link {
+    cursor: pointer;
+    color: var(--linkColor);
+    padding-bottom: var(--lineStroke);
+    background:
+      linear-gradient(var(--filledLine), var(--filledLine)) no-repeat 100% 100% / 0 var(--lineStroke),
+      linear-gradient(var(--unfilledLine), var(--unfilledLine)) no-repeat 0 100% / 100% var(--lineStroke);
+    transition: background-size 300ms var(--bezierFastoutSlowin, ease);
+  }
+  .fancy-link:hover,
+  .fancy-link:focus-visible {
+    background:
+      linear-gradient(var(--filledLine), var(--filledLine)) no-repeat 0 100% / 100% var(--lineStroke),
+      linear-gradient(var(--unfilledLine), var(--unfilledLine)) no-repeat 0 100% / 100% var(--lineStroke);
+  }
+  .fancy-link--secondary {
+    --linkColor: #f5f5f5;
+  }
 }
-
-#btn:hover {
-    box-shadow: inset 350px 0 0 0 black;
-    transform: scale(1.1);
-    color: white;
-}
-
-
-

@@ -1,17 +1,18 @@
 // About.jsx
-import { useState, useEffect } from "react";
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
-import { aboutContent } from "../content/aboutText.js";
-import Particles from "../r3f/Particles.jsx";
-import Button from "./Button.jsx";
+import { useState, useEffect } from 'react'
+import { Canvas } from '@react-three/fiber'
+import { OrbitControls } from '@react-three/drei'
+import { aboutContent } from '../content/aboutText.js'
+import { FancyLink } from '../components/FancyLink.jsx'
+import Particles from '../r3f/Particles.jsx'
+import Button from './Button.jsx'
 
 export default function About() {
   // delay mounting the Canvas until after CSS has laid out the wrapper
-  const [showCanvas, setShowCanvas] = useState(false);
+  const [showCanvas, setShowCanvas] = useState(false)
   useEffect(() => {
-    setShowCanvas(true);
-  }, []);
+    setShowCanvas(true)
+  }, [])
 
   return (
     <div className="w-full h-screen flex flex-col lg:flex-row text-white overflow-auto">
@@ -46,30 +47,28 @@ export default function About() {
         lg:pr-12 bg-warm-gray backdrop-blur lg:pt-32 px-8 z-10 mb-50 lg:mb-0"
       >
         <h1 className="text-3xl font-bold py-4 text-yellow-mellow">
-          {aboutContent.headline}
+            {aboutContent.headline}
         </h1>
         <p className="text-base/8">{aboutContent.intro}</p>
         <p className="py-8 text-base/8">{aboutContent.background}</p>
         <p className="text-base/8">{aboutContent.passion}</p>
 
         <div className="py-4 my-4">
-          <a
-            href={aboutContent.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-yellow-mellow-light underline transition"
-          >
-            GitHub
-          </a>
-          {" | "}
-          <a
-            href={aboutContent.linkedIn}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-yellow-mellow-light underline transition"
-          >
-            LinkedIn
-          </a>
+            <FancyLink
+                href={ aboutContent.github }
+                secondary
+                className="mr-2"
+            >
+                Github
+            </FancyLink>
+            {" | "}
+            <FancyLink
+                href={ aboutContent.linkedIn }
+                secondary
+                className="ml-2"
+            >
+                LinkedIn
+            </FancyLink>
         </div>
 
         <Button
@@ -86,5 +85,5 @@ export default function About() {
         </Button>
       </div>
     </div>
-  );
+  )
 }
