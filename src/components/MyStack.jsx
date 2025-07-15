@@ -1,5 +1,8 @@
+import { Canvas } from '@react-three/fiber'
+import { CameraControls } from '@react-three/drei'
 import { myStack } from "../content/myStack.js";
 import { FancyLink } from "./FancyLink.jsx";
+import MagicBox from '../r3f/MagicBox.jsx';
 
 export default function MyStack()
 {
@@ -82,6 +85,14 @@ export default function MyStack()
                         </p>
                     ))}
                 </section>
+            </div>
+            <div className="relative flex-none w-full h-2/5 p-4 lg:w-1/2 lg:h-full">
+                <Canvas 
+                    shadows camera={{ position: [ -3, 0.5, 3 ]}}>
+                    <MagicBox scale={ 1.15 } />
+                    {/* <CameraControls makeDefault /> */}
+                    <CameraControls makeDefault dollySpeed={0} />
+                </Canvas>
             </div>
         </div>
     )
