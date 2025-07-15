@@ -92,7 +92,7 @@ export const myStack = {
                 description: "I use Unity to build games and VR experiences. I'm comfortable with basic scene design and interactivity. While it has a steep learning curve, its power and flexibility make it worth mastering.",         
             },
             {
-                tool: "Meta Quest3",
+                tool: "Meta Quest 3",
                 description: "My headset for testing and exploring immersive experiences.",         
             },
             {

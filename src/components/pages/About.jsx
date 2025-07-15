@@ -2,10 +2,10 @@
 import { useState, useEffect } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
-import { aboutContent } from '../content/aboutText.js'
-import { FancyLink } from '../components/FancyLink.jsx'
-import Particles from '../r3f/Particles.jsx'
-import Button from './Button.jsx'
+import { aboutContent } from '../../content/aboutText.js'
+import { FancyLink } from '../../components/FancyLink.jsx'
+import Particles from '../../r3f/Particles.jsx'
+import Button from '../Button.jsx'
 
 export default function About() {
   // delay mounting the Canvas until after CSS has laid out the wrapper

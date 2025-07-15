@@ -4,12 +4,13 @@ export const fordContent = {
     team: "Customer Success Portfolio Strategy",
     startDate: "2024",
     endDate: "Present",
-    intro:"I bring strategy to life, delivering real impact across service, content, and product.",
+    // intro:"I bring strategy to life, delivering real impact across service, content, and product.",
+    intro:"I lead end-to-end research and analysis, conducting Gemba field studies, SME interviews, benchmark evaluations, and UX audits to map complex customer journeys and digital touch points. I synthesize qualitative and quantitative insights into clear service and system blueprints, then translate those findings into future-proof portfolio strategies that align with business objectives and drive measurable improvements in customer experience.",
     projects: [
         {
             projectName: "24/7 Live Support",
             keyOutcomes: "609% Enrollment Growth | +18 NPS | CSAT Up 5pts",
-            description: "Led the end-to-end design of Ford’s 24/7 Live Support and 0% SoC Proactive Roadside programs. Streamlined agent workflows, rewrote customer-facing content, and rebuilt the digital experience—driving a 609% MoM enrollment surge, +18pt NPS to 42.8, and +5pt CSAT to 66.7.",
+            description: "Led the end-to-end design of Ford’s 24/7 Live Support and 0% SoC (State of Charge) Proactive Roadside programs. Streamlined agent workflows, rewrote customer-facing content, and rebuilt the digital experience—driving a 609% MoM enrollment surge, +18pt NPS to 42.8, and +5pt CSAT to 66.7.",
         },
         {
             projectName: "CRC Transformation Strategy",
