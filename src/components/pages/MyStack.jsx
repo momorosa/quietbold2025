@@ -1,15 +1,15 @@
-import { useState, useEffect } from "react";
-import { Canvas } from "@react-three/fiber";
-import { CameraControls } from "@react-three/drei";
-import { myStack } from "../../content/myStack.js";
-import { FancyLink } from "../FancyLink.jsx";
-import MagicBox from "../../r3f/MagicBox.jsx";
+import { useState, useEffect } from "react"
+import { Canvas } from "@react-three/fiber"
+import { CameraControls } from "@react-three/drei"
+import { myStack } from "../../content/myStack.js"
+import { FancyLink } from "../FancyLink.jsx"
+import MagicBox from "../../r3f/MagicBox.jsx"
 
 export default function MyStack() {
-  const [showCanvas, setShowCanvas] = useState(false);
-  useEffect(() => {
-    setShowCanvas(true);
-  }, []);
+    const [showCanvas, setShowCanvas] = useState(false)
+        useEffect(() => {
+        setShowCanvas(true);
+    }, [])
 
   return (
     <div className="flex flex-col h-screen w-full lg:flex-row text-white pt-24 lg:mb-80 pb-16">
@@ -36,8 +36,9 @@ export default function MyStack() {
             <FancyLink
               href="https://medium.com/@momorosa.design/a-step-by-step-guide-to-bringing-an-ai-character-to-life-2828514037bc"
               secondary
+              id="primary-link-text"
             >
-              See it in action
+                See it in action
             </FancyLink>
           </p>
         </section>
@@ -81,10 +82,10 @@ export default function MyStack() {
           ))}
         </section>
       </div>
-      <div className="relative order-1 lg:order-2 flex-1 w-full h-1/2 p-4  lg:w-1/2 lg:h-full">
+      <div className="relative order-1 lg:order-2 flex-1 w-full h-1/2 p-4 lg:w-1/2 lg:h-full">
         {showCanvas && (
           <Canvas
-            className="absolute inset-0"
+            className="absolute inset-0 touch-none"
             shadows
             camera={{ position: [-3, 0.5, 3] }}
           >

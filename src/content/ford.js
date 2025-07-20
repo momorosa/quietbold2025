@@ -1,28 +1,28 @@
 export const fordContent = {
     headline: "Ford",
-    title: "Design Strategist",
+    title: "Design & CX Strategist",
     team: "Customer Success Portfolio Strategy",
     startDate: "2024",
     endDate: "Present",
-    // intro:"I bring strategy to life, delivering real impact across service, content, and product.",
-    intro:"I lead end-to-end research and analysis, conducting Gemba field studies, SME interviews, benchmark evaluations, and UX audits to map complex customer journeys and digital touch points. I synthesize qualitative and quantitative insights into clear service and system blueprints, then translate those findings into future-proof portfolio strategies that align with business objectives and drive measurable improvements in customer experience.",
+    intro:"Shape Ford’s ownership experience strategy for 15M+ owners worldwide, using field GEMBA studies, data synthesis, and service blueprints to uncover $-scale opportunities, align executives, and deliver measurable CX and cost-to-serve gains.",
     projects: [
         {
             projectName: "24/7 Live Support",
-            keyOutcomes: "609% Enrollment Growth | +18 NPS | CSAT Up 5pts",
-            description: "Led the end-to-end design of Ford’s 24/7 Live Support and 0% SoC (State of Charge) Proactive Roadside programs. Streamlined agent workflows, rewrote customer-facing content, and rebuilt the digital experience—driving a 609% MoM enrollment surge, +18pt NPS to 42.8, and +5pt CSAT to 66.7.",
+            keyOutcomes: "+609% MoM Enrollment | +18 NPS (to 42.8)",
+            description: "Led the end-to-end design of Ford’s 24/7 Live Support and 0% SoC (State of Charge) Proactive Roadside programs. Re-imagined agent workflows, content, and digital touchpoints, driving a 609% MoM enrollment surge, +18pt NPS to 42.8, and +5pt CSAT to 66.7.",
+            button: "View project"
         },
         {
             projectName: "CRC Transformation Strategy",
             keyOutcomes: "2035 Vision | Roadmap to Predictive AI",
-            description: "Synthesized 30+ stakeholder interviews, 200+ customer surveys, and 10 benchmark studies into Ford’s Strategic Choices Cascade. Defined a bold 2035 customer journey vision and built a prioritized roadmap to close CRM/data gaps and activate predictive, agentic AI support.",
+            description: "Synthesized 30+ stakeholder interviews, 200+ customer surveys, and benchmark studies into a Strategic Choices Cascade. Defined a bold 2035 customer journey vision and built a prioritized roadmap to close CRM/data gaps and activate predictive, agentic AI support.",
         },
         {
             projectName: "Automation & AI Readiness",
             keyOutcomes: "10–20% Agent Productivity Boost | +15% First-Call Resolution",
-            description: "Translated on-the-ground GEMBA insights into UX click studies, led AI tooling (Co-Pilot, Ford AI Chatbot) and workflow automation. Resulted in projected 10–20% agent productivity lift and a 15% gain in first-call resolution.",
+            description: "Converted GEMBA insights into UX click studies; orchestrated Co-Pilot and Ford AI Chatbot integration projected 10–20% agent productivity lift and a 15% gain in first-call resolution.",
         }
     ],
-    skills: ["Design Strategy, UX Research, Systems Thinking, AI Integration"]
+    skills: "Design Strategy, Advanced UX Research, AI / Data Product Strategy, Systems Thinking"
 
 }

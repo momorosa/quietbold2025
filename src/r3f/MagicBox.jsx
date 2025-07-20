@@ -20,7 +20,7 @@ function Side({ rotation = [0, 0, 0], bg = '#f0f0f0', children, index }) {
         <MeshPortalMaterial attach={`material-${index}`}>
         {/* mini-scene rendered *inside* this face */}
             <ambientLight intensity={0.7} />
-            <Environment preset="city" />
+            <Environment preset="warehouse" />
 
             <spotLight 
                 position={[ 2, 2, 2 ]}

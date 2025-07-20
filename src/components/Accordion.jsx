@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
+import TextButton from './TextButton.jsx'
 
 const base = "p-4 border-b border-warm-gray-medium"
 
@@ -7,6 +8,7 @@ export default function Accordion({
     outcomes, 
     children, 
     defaultOpen = false,
+    buttonProps = null,
     className = "" 
 }) {
 
@@ -34,11 +36,11 @@ export default function Accordion({
                 <h3 className="font-medium text-yellow-mellow">{title}</h3>
 
                 {/* Material “add” icon rotates to form an “×” when open */}
-                <span className={`material-icons text-yellow-mellow p-2 transform transition-transform duration-300 ease-in-out group-hover:scale-110 ${
+                <span className={`material-icons text-yellow-mellow p-2 transform transition-transform duration-300 ease-in-out group-hover:cursor-pointer group-hover:text-yellow-mellow-light group-hover:scale-120 ${
                     open ? "rotate-45" : "rotate-0"}`}>
                     add
                 </span>
-                </button>
+            </button>
 
             {/* Always‑visible key outcomes */}
             { outcomes && (
@@ -48,16 +50,28 @@ export default function Accordion({
                 </p>
             )}
 
-        {/* Expandable description */}
+        {/* Expandable area */}
             <div
                 ref={content}
                 style={{ maxHeight }}
                 className="overflow-hidden transition-[max-height] duration-300 ease-in-out"
             >
-            {/* Optional fade‑in – uncomment if desired */}
-            {/* <div className={`transition-opacity duration-300 ${open ? 'opacity-100' : 'opacity-0'}`}> */}
-                <p className="text-gray-400 leading-relaxed">{children}</p>
-            {/* </div> */}
+                {/* Fade‑in description */}
+                <div className={`transition-opacity duration-300 ${open ? 'opacity-100' : 'opacity-0'}`}>
+                    <p className="text-gray-400 leading-relaxed">{children}</p>
+                </div>
+                {/* optional button */}
+                { buttonProps && (
+                    <TextButton
+                        {...buttonProps}
+                        className={`font-medium px-6 py-3 mt-4 ${buttonProps.className ?? ""}`}
+                        aria-label="View project"
+                        rightIcon="east"
+                        iconSize="md-18"
+                    >
+                        { buttonProps.label }
+                    </TextButton>
+                )}
             </div>
         </div>
 

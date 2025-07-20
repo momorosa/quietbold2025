@@ -4,8 +4,15 @@ import { Canvas } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 import { aboutContent } from '../../content/aboutText.js'
 import { FancyLink } from '../../components/FancyLink.jsx'
+import { linkify } from '../../utils/linkify.js'
 import Particles from '../../r3f/Particles.jsx'
 import Button from '../Button.jsx'
+
+const BIO_LINKS = {
+    "Ford": "/work/ford",
+    "First Republic Bank": "/work/frb",
+    "personal projects": "/work/projects"
+}
 
 export default function About() {
   // delay mounting the Canvas until after CSS has laid out the wrapper
@@ -43,15 +50,19 @@ export default function About() {
       {/* Content panel */}
       {/* ──────────────────────────────── */}
       <div
-        className="w-full h-auto lg:w-2/5 lg:h-full               
+        className="w-full h-auto lg:w-2/5 lg:h-full             
         lg:pr-12 bg-warm-gray backdrop-blur lg:pt-32 px-8 mb-20 lg:mb-0"
       >
         <h1 className="text-3xl font-bold py-4 text-yellow-mellow">
             {aboutContent.headline}
         </h1>
         <p className="text-base/8">{aboutContent.intro}</p>
-        <p className="py-8 text-base/8">{aboutContent.background}</p>
-        <p className="text-base/8">{aboutContent.passion}</p>
+        <p className="py-8 text-base/8">
+            { linkify(aboutContent.background, BIO_LINKS) }
+        </p>
+        <p className="text-base/8">
+            { linkify(aboutContent.passion, BIO_LINKS) }
+        </p>
 
         <div className="py-4 my-4">
             <FancyLink
